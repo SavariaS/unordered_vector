@@ -354,7 +354,7 @@ namespace xcontainer
                 m_size = 0;
             }
 
-            constexpr iterator insert(iterator pos, const T& value)
+            constexpr iterator insert(const_iterator pos, const T& value)
             {
                 difference_type index = pos - begin();
 
@@ -364,7 +364,7 @@ namespace xcontainer
                 return begin() + index;
             }
 
-            constexpr iterator insert(iterator pos, T&& value)
+            constexpr iterator insert(const_iterator pos, T&& value)
             {
                 difference_type index = pos - begin();
 
@@ -374,7 +374,7 @@ namespace xcontainer
                 return begin() + index;
             }
 
-            constexpr iterator insert(iterator pos, size_type count, const T& value)
+            constexpr iterator insert(const_iterator pos, size_type count, const T& value)
             {
                 difference_type index = pos - begin();
 
@@ -395,7 +395,7 @@ namespace xcontainer
             }
 
             template<class InputItr>
-            constexpr iterator insert(iterator pos, InputItr first, InputItr last)
+            constexpr iterator insert(const_iterator pos, InputItr first, InputItr last)
             {
                 difference_type index = pos - begin();
 
@@ -412,7 +412,7 @@ namespace xcontainer
                 return begin() + index;
             }
 
-            constexpr iterator insert(iterator pos, std::initializer_list<T> ilist)
+            constexpr iterator insert(const_iterator pos, std::initializer_list<T> ilist)
             {
                 difference_type index = pos - begin();
                 size_type count = ilist.size();
@@ -437,7 +437,7 @@ namespace xcontainer
             }
 
             template< class... Args >
-            constexpr iterator emplace(iterator pos, Args&&... args)
+            constexpr iterator emplace(const_iterator pos, Args&&... args)
             {
                 return insert(pos, value_type(std::forward<Args>(args)...));
             }
